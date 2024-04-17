@@ -280,7 +280,6 @@ function rollDiceHandler(e) {
                 rolls.push(roll);
                 passphrase.push(roll.word);
                 count++;
-                console.log(`count: ${count}`);
             }
         });
 
