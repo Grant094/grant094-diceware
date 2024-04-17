@@ -211,6 +211,8 @@ function rollDiceHandlerPre() {
 */
 function rollDiceHandler(e) {
 
+    let possible_special_characters = "~!@#$%^&*()_-+={[}]|:;<,>.?/"
+
     //
     // Disable our button while generating results
     //
@@ -224,8 +226,10 @@ function rollDiceHandler(e) {
     let num_dice = jQuery(".dice_button.active").html();
     console.log(`Rolling ${num_dice} dice...`);
     let num_dice_for_digits = $('input#include-number').is(':checked') ? 1 : 0;
-    let num_dice_for_words = Number(num_dice) - num_dice_for_digits;
-    let num_passwords = Number(Math.pow(6, (window.Diceware.num_dice_per_roll * num_dice_for_words))) * Number(Math.pow(10, num_dice_for_digits));
+    let num_dice_for_special_characters = $('input#include-special-character').is(':checked') ? 1 : 0;
+    let num_supplementary_characters = num_dice_for_digits + num_dice_for_special_characters;
+    let num_dice_for_words = Number(num_dice) - num_supplementary_characters;
+    let num_passwords = Number(Math.pow(6, (window.Diceware.num_dice_per_roll * num_dice_for_words))) * Number(Math.pow(10, num_dice_for_digits)) * Number(Math.pow(10, num_dice_for_special_characters));
     let passphrase = new Array();
     let rolls = new Array();
 
@@ -253,10 +257,24 @@ function rollDiceHandler(e) {
             let roll = {};
             roll.dice = row;
             // console.log("Debug Dice Roll", JSON.stringify(roll.dice)); // Debugging
-            if ($('input#include-number').is(':checked') && count === (Number(num_dice) - 1)) {
-                roll.word = String(Number(roll.dice.value) % 10)
+            if (count >= Number(num_dice_for_words)) {
+                if (num_supplementary_characters === 2) {
+                    if (count === Number(num_dice_for_words)) {
+                        roll.word = String(Number(roll.dice.value) % 10)
+                    } else {
+                        roll.word = String(possible_special_characters.charAt(Number(roll.dice.value) % possible_special_characters.length));
+                    }
+                } else if (num_supplementary_characters === 1) {
+                    if (num_dice_for_digits) {
+                        roll.word = String(Number(roll.dice.value) % 10)
+                    } else {
+                        roll.word = String(possible_special_characters.charAt(Number(roll.dice.value) % possible_special_characters.length));
+                    }
+                }
+                
                 rolls.push(roll);
                 passphrase.push(roll.word);
+                count++;
             } else {
                 roll.word = util.get_word(wordlist.get, roll.dice.value);
                 rolls.push(roll);
