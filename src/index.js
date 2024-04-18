@@ -45,13 +45,20 @@ function set_handlers() {
 
 	jQuery("#roll_dice").on("click", display.rollDiceHandler);
 
-    jQuery('.option-checkbox').on("change", function() {
+    jQuery('.option-checkbox').on("change", function(e) {
+        let isChecked = jQuery(e.target).is(':checked');
         let incumbent_active_dice_button_id = jQuery(".active").attr('id');
         let incumbent_active_dice_button_num = incumbent_active_dice_button_id[incumbent_active_dice_button_id.length - 1];
-        let new_active_dice_button_num = Number(incumbent_active_dice_button_num) + 1;
-        let new_active_dice_button_id = incumbent_active_dice_button_id.substring(0, incumbent_active_dice_button_id.length - 1) + new_active_dice_button_num;
-        jQuery(`#${incumbent_active_dice_button_id}`).removeClass('active');
-        jQuery(`#${new_active_dice_button_id}`).addClass('active');
+        if (
+            !(Number(incumbent_active_dice_button_num) === 8 && isChecked) &&
+            !(Number(incumbent_active_dice_button_num) === 2 && !isChecked)
+        ) {
+            // If checking, go up by one; if unchecking, go down by one
+            let new_active_dice_button_num = Number(incumbent_active_dice_button_num) + (isChecked? 1 : -1);
+            let new_active_dice_button_id = incumbent_active_dice_button_id.substring(0, incumbent_active_dice_button_id.length - 1) + new_active_dice_button_num;
+            jQuery(`#${incumbent_active_dice_button_id}`).removeClass('active');
+            jQuery(`#${new_active_dice_button_id}`).addClass('active');
+        }
     });
     
 } // End of set_handlers()
