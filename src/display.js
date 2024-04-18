@@ -162,6 +162,10 @@ function results(cb) {
     }).then(function () {
         return (jQuery(".results .copy_button_div").fadeIn(400).promise());
     }).then(function () {
+        return (jQuery(".copy_button").on('click', function () {
+            navigator.clipboard.writeText(jQuery(".string_to_copy").html());
+        }));
+    }).then(function () {
         return (jQuery(".results .results_num_possible_key").fadeIn(300).promise());
     }).then(function () {
         return (jQuery(".results .results_num_possible_value").fadeIn(300).promise());
@@ -315,6 +319,11 @@ function rollDiceHandlerPost(rolls, passphrase, num_passwords) {
     // tag so they will wrap properly on a narrow/mobile screen.
     //
     jQuery(".results_phrase_value").html(passphrase.join("<wbr>"));
+    //
+    // copy results phrase to clipboard
+    //
+    jQuery(".string_to_copy").html(passphrase.join(""));
+    // navigator.clipboard.writeText(passphrase.join(""));
     //
     // Convert the number of passwords to something based on the 
     // locale and then add in <wbr> tags so they too will wrap.
