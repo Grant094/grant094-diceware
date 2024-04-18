@@ -183,20 +183,20 @@
 		<div class="col-md-10 main">
 
 <h2>About Diceware</h2>
-
+<p>
 Weak passwords are a big flaw in computer security due to a lack of "entropy" 
 or randomness.  For example, how many times have you used the name of a pet or relative or street
 in a password, or perhaps the number "1"?  Not very random, is it? 😃
 Worse still, if
-passwords are reused between services, <a href="http://www.businessinsider.com/biggest-password-mistake-2014-8"
-	>that increases your security risk</a>.  This is not theoretical, <a href="http://www.techspot.com/news/65255-hackers-access-github-accounts-reusing-passwords-previous-leaks.html"
-	>this has already happened.</a>
+passwords are reused between services, <a href="http://www.businessinsider.com/biggest-password-mistake-2014-8">that increases your security risk</a>.  This is not theoretical, <a href="http://www.techspot.com/news/65255-hackers-access-github-accounts-reusing-passwords-previous-leaks.html">this has already happened</a>.
 </p>
 
+<p>
 Fact is, humans are terrible at remembering random combinations of letters and
 numbers, but we are great at remembering phrases of words. That's where Diceware comes in.
 </p>
 
+<p>
 This Diceware web app is based on <a href="http://world.std.com/~reinhold/diceware.html">the original proposal</a>
 wherein virtual dice are rolled 5 times, and the 5 digit number used against a lookup table of words.
 4 dice rolls gives you 4 random words which are easy for a human being to remember, yet have
@@ -222,17 +222,18 @@ Diceware is a trademark of Arnold Reinhold.
 
 <h2>Frequently Asked Questions</h2>
 
-<h3>FAQ: Why not use 1Password or BitKeeper or something similar?</h3>
+<h3>FAQ: Why does this website look familiar?</h3>
+<p>Probably because it was forked from another website, <a href="https://diceware.dmuth.org/">https://diceware.dmuth.org/</a>. I found that website very useful but wanted there to be a few additional features, so I added them to this site! If you </p>
 
-By all means, feel free to do so.  <a href="https://1password.com/">1Password</a> is an excellent product and I highly recommend it. 
-That said, there's no reason that Diceware cannot be used concurrently with a password manager. 
-But I <em>also</em> happen to like passwords I can remember. :-)
+<h3>FAQ: Why not use a Password Manager?</h3>
+
+By all means, feel free to do so.  <a href="https://www.dashlane.com/">Dashlane</a> is a great product and I highly recommend it. 
+That said, there's no reason that Diceware cannot be used concurrently with a password manager.
 </p>
 
 If you want the absolute highest levels of password security, consider using <a href="https://strongboxsafe.com/">Strongbox</a>.  One neat thing about Strongbox is that it comes with a built-in Diceware client!</p>
 
 If you prefer insults in your passphrases, check out the <a href="https://cheswick.com/insults">Insult Passphrase Generator</a> by Ron Hardin.  Each passphrase has ~42 bits of randomness.</p>
-
 
 <h3>FAQ: What are some good use cases for Diceware?</h3>
 
@@ -240,7 +241,6 @@ If you prefer insults in your passphrases, check out the <a href="https://cheswi
 <li>Smart TVs: Diceware is a great fit for password entry on Smart TVs, or any other environment where typing non-alphanumerics is a challenge.</li>
 <li>Work/Shared Computer: Let's say you're using a computer that you do not own, and want to log into a personal account.  You may not want to install 1Password on that machine, so if you've generated that account's password with Diceware, it will be much easier to type in on the keyboard. </li>
 </ul>
-
 
 <h3>FAQ: What are some BAD use cases for Diceware?</h3>
 
@@ -251,40 +251,25 @@ because all BitCoin nodes have a copy of the BitCoin Ledger, and an attacker
 <a href="https://umanovskis.se/blog/post/leaky-faucet/">could attempt password cracking your wallet</a>.
 </p>
 
-Better still, <a href="https://time.com/nextadvisor/investing/cryptocurrency/should-you-use-crypto-like-cash/">don't use BitCoin</a>.  
-(Seriously, <a href="https://web3isgoinggreat.com/">avoid crypto and NFTs</a>.)
 </p>
 
 
 <h3>FAQ: Should I add numbers or an exclamation point to my password?</h3>
 
-No, don't do that.  The short answer is that length makes your password more secure than special characters do.  But don't take it from me, <a href="https://www.engadget.com/2017-08-08-nist-new-password-guidelines.html">take it from the man who put us through password hell</a> and regrets every minute of it.
+<p>
+Not unless you have to.  The short answer is that length makes your password more secure than special characters do.  But don't take it from me, <a href="https://www.engadget.com/2017-08-08-nist-new-password-guidelines.html">take it from the man who put us through password hell</a> and regrets every minute of it.
+
+This website will generate a random number, special character, or both if you tell it to since several websites out there still require you to include either or both.
 </p>
 
 <p>
-The NIST has since released new password creation guidelines in a document which is rather lengthly, <a href="https://auth0.com/blog/dont-pass-on-the-new-nist-password-guidelines/">but summarized nicely here</a>.
+<a href="https://www.nist.gov/">NIST</a> has since released new password creation guidelines in a document which is rather lengthly, <a href="https://auth0.com/blog/dont-pass-on-the-new-nist-password-guidelines/">but summarized nicely here</a>.
 </p>
 
 <h3>FAQ: Will this protect me from phishing attacks?</h3>
 
 <p>
 Nope, even the best password in the world won't protect you if it is phished.  However, having a password unique to that service will help mitigate the harm.  <a href="https://en.wikipedia.org/wiki/Multi-factor_authentication">Two Factor Authentication</a> will also help you.
-</p>
-
-
-<h3>FAQ: Can I share this app?</h3>
-
-<p>
-Sure!  Here's a handy QR Code that your friends can scan:
-</p>
-
-<p>
-<a href="./assets/img/qrcode.png"><img src="./assets/img/qrcode.png" class="responsive-qrcode" /></a>
-</p>
-
-<p>
-Yes, I created that <a href="https://httpbin.dmuth.org/qrcode/">with my own QR Code Generator</a>.
-In the tech industry, we call this <a href="https://en.wikipedia.org/wiki/Eating_your_own_dog_food">dogfooding</a>. :-)
 </p>
 
 
@@ -308,18 +293,18 @@ If you want the absolute worst password security, go right ahead and use the sam
 
 If you want the absolute best security, choose a different password of completely random charcters for each service.</p>
 
-If you want a middle of the road approach that offers medium security, Diceware is the way to go.  I wrote it for people like <a href="https://www.flickr.com/photos/dmuth/48499048131/in/photosof-dmuth/">my parents</a>, who might struggle with a password manager or not want to enter random characters when trying to enter their Apple password into their Apple TV, or want a password to log into their Mac that they can actually remember and not have to write down.</p>
+If you want a middle of the road approach that offers medium security, Diceware is the way to go.
 
 This article is a bit dated, but the entropy (randomness) with Diceware passwords <a href="https://theintercept.com/2015/03/26/passphrases-can-memorize-attackers-cant-guess/">is substantial and can present a challenge to the NSA</a>.
 
 
 <h3>FAQ: Is the source available?</h3>
 
-Yep!  You can grab a copy at <a href="https://github.com/dmuth/diceware">https://github.com/dmuth/diceware</a>
+Yep!  You can grab a copy at <a href="https://github.com/Grant094/grant094-diceware" target="_blank">https://github.com/Grant094/grant094-diceware</a> or see the original code at <a href="https://github.com/dmuth/diceware" target="_blank">https://github.com/dmuth/diceware</a>.
 </p>
 
 In fact, if you are nervous about generating a password on a website (even though the password is actually 
-generated by Javascript in your browser), I would encourage you to download the source and run it locally.
+generated by Javascript in your browser), you can download the source code and run it locally.
 </p>
 
 If you do want to run Diceware locally, just download the source and run a webserver in Python with
@@ -354,62 +339,23 @@ Examples: <a href="?debug=4&skip_animation">4 dice rolls with no animation</a>
 <h3>FAQ: Can you tell me more about the list of words?</h3>
 
 <p>
-For rolls of 5 dice, I am now using <a href="https://www.eff.org/deeplinks/2016/07/new-wordlists-random-passphrases"
-	>the worldlist from the EFF</a>. <a href="https://github.com/dmuth/diceware/issues/30">Substantial enhancements</a> have been made over the original list designed to improve usability without compromising security.
+For rolls of 5 dice, this site uses <a href="https://www.eff.org/deeplinks/2016/07/new-wordlists-random-passphrases">the worldlist from the EFF</a>. <a href="https://github.com/dmuth/diceware/issues/30">Substantial enhancements</a> have been made over the original list designed to improve usability without compromising security.
 </p>
 
 <p>
-I started off using <a href="http://world.std.com/~reinhold/diceware.wordlist.asc">the original wordlist</a>,
-but it contained a lot of symbols, punctuation, numbers, and 2 and 3 letter words.  I wanted to try a different
-wordlist with longer words, no non-alphabetic characters, and words more commonly used.  So then I tried
-<a href="http://norvig.com/ngrams/">Peter Norvig's</a> list of <a href="http://norvig.com/ngrams/count_1w.txt"
-		>the 1/3rd million most frequently used words</a>.
+<a href="http://world.std.com/~reinhold/diceware.wordlist.asc">The original wordlist</a>, contains a lot of symbols, punctuation, numbers, and 2- and 3-letter words.
+
+Another wordlist with longer words, only alphabetic characters, and more commonly-used words is 
+<a href="http://norvig.com">Peter Norvig's</a> <a href="http://norvig.com/ngrams/count_1w.txt">list of the 1/3rd million most frequently used words</a>.
 </p>
 
 <h3>FAQ: How many dice are rolled per word?</h3>
 
-The default is 5 dice, which allows for 7,776 different words per roll.  While I have some debug hooks
+The default is 5 dice, which allows for 7,776 different words per roll.  While there are some debug hooks
 in the code so that you can run Diceware with <a href="?dice=6">6 dice per word</a> and 
 <a href="?dice=7">7 dice per word</a> (for 46,655 and 279,935 possible words, respectively), the words
-used become more obscure, which makes them more difficult to remember, so I'm not entirely sure that is a good thing.
-But for now, the functionality is there, if there is a desire for it.
-
-
-<h3>FAQ: Is Air-gapped Operation Supported?</h3>
-
-It is now!  The entire project can be downloaded and executed on a machine that is not connected to the Internet.
-I was able to pull this off due in part to uploading the code to an AWS S3 Bucket and then making that
-content available via <a href="https://aws.amazon.com/cloudfront/">CloudFront</a>.
-
-
-<h3>FAQ: How secure is the webserver this app is on?</h3>
-
-I used to host this app on my personal webserver, but didn't like that doing so increased my webserver's
-risk profile substantially.  I've since moved the app into AWS--the HTML, Javascript, and CSS resides in an 
-S3 bucket, and the content is served up via <a href="https://aws.amazon.com/cloudfront/">CloudFront</a> with
-an SSL certificate provided by <a href="https://aws.amazon.com/certificate-manager/">AWS Certificate Manager</a> for free.
-
-The S3 bucket has <a href="https://aws.amazon.com/cloudtrail/">CloudTrail</a> enabled on it, so that I have
-an audit trail of all actions performed on that bucket.
-
-
-<h3>FAQ: Speaking of audit trails, are you keeping any logs of accesses to this website?</h3>
-
-Hell no.  I don't want to know who is using this app.  More importantly, if logs are not kept, then it 
-means that an adversary won't know either.
-
-
-<h3>FAQ: Will this work over Tor?</h3>
-
-Yep, I tested it!  Just make sure you go into the NoScript plugin and enable Javascript for this site.
-
-
-<h3>FAQ: Why did you change the wordlist?</h3>
-
-</p>
-
-I am always considering what words I use in the wordlist.  I may opt to use shorter words in the future.
-
+used become more obscure, which makes them more difficult to remember, which may not be worth it.
+But for now, the functionality is there.
 
 <h2>Meta</h2>
 
@@ -420,28 +366,22 @@ Yep!  I've built a few things you may find interesting:
 </p>
 
 <ul>
-<li><a href="https://httpbin.dmuth.org/">FastAPI Httpbin</a> - HTTP Endpoints for testing of your app</li>
-<li><a href="https://httpbin.dmuth.org/qrcode/">Dead Simple QR Code Generator</a> - No ads. No signups. No spam.  Just QR Codes when you want them.</li>
-<li><a href="https://septastats.com/">SEPTA Stats</a> - Stats on Philadelphia Public Transit</li>
-<li><a href="https://github.com/dmuth/splunk-lab">Splunk Lab</a> - Stand up a Splunk instance in 30 seconds</a>
-<li><a href="https://github.com/dmuth/tarsplit">Tarsplit</a> - Split a tarball on file boundaries</li>
-<li><a href="https://github.com/dmuth/docker-in-vagrant">Docker in Vagrant</a> - Replacement for Docker Desktop for the Mac.
-<li>...or just <a href="https://github.com/dmuth">poke around my GitHub</a>!</li>
+    <li><a href="https://github.com/Grant094/super-skill-pinball-digital">Digital Version of "Super-Skill Pinball 4-Cade" Board Game</a></li>
+    <li><a href="https://github.com/Grant094/terraforming-mars-picker?tab=readme-ov-file">"Terraforming Mars" Board Game Component Picker</a></li>
+    <li>...or just poke around <a href="https://github.com/Grant094">my GitHub profile</a></li>
 </ul>
 
 
 
 <h3>Who built this? / Contact</h3>
 
-My name is <a href="http://www.dmuth.org/">Douglas Muth</a>, and I am a software engineer in Philadelphia, PA.
+My name is Grant Oxer, and I am looking to become a software engineer in Seattle, WA.
 </p>
 
-There are several ways to get in touch with me:
+There are multiple ways to get in touch with me:
 <ul>
-<li>Email to doug.muth AT gmail DOT com or dmuth AT dmuth DOT org</li>
-<li><a href="http://www.facebook.com/dmuth">Facebook</a> and <a href="http://twitter.com/dmuth">Twitter</a></li>
-<li><a href="http://www.linkedin.com/in/dmuth">LinkedIn</a></li>
-<li><a href="https://github.com/dmuth/diceware/issues">Opening an Issue in GitHub</a>
+    <li><a href="https://www.linkedin.com/in/groxer/">LinkedIn</a></li>
+    <li><a href="https://github.com/Grant094">GitHub</a>
 </ul>
 
 Feel free to reach out to me if you have any comments, suggestions, bug reports, or wish to buy me a beer. 😃🍻
