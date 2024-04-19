@@ -4,13 +4,13 @@ let Promise = require("bluebird");
 let randomNumber = require("random-number-csprng");
 
 
-module.exports = function(arg) {
+module.exports = function (arg) {
 
     //
     // Export our functions.
     //
-    return({
-        iCanHasGoodCrypto: iCanHasGoodCrypto,  
+    return ({
+        iCanHasGoodCrypto: iCanHasGoodCrypto,
         convertBigNumberToString: convertBigNumberToString,
         getRandomValue: getRandomValue,
     });
@@ -24,25 +24,25 @@ module.exports = function(arg) {
 */
 function iCanHasGoodCrypto() {
 
-	//
-	// If we don't have a Window variable, we're in Node.js, probably doing unit tests, so
-	// return true.
-	//
-	// Even if I screw this up and there exists a web browser that doesn't have window defined
-	// worst case is that a non-existant crypto.getRandomValues() function is called, and I'd rather
-	// have some sort of error versus a user accidentally using weak crypto.
-	//
-	if (typeof(window) == "undefined") {
-		return(true);
-	}
+    //
+    // If we don't have a Window variable, we're in Node.js, probably doing unit tests, so
+    // return true.
+    //
+    // Even if I screw this up and there exists a web browser that doesn't have window defined
+    // worst case is that a non-existant crypto.getRandomValues() function is called, and I'd rather
+    // have some sort of error versus a user accidentally using weak crypto.
+    //
+    if (typeof (window) == "undefined") {
+        return (true);
+    }
 
-	if (typeof(window) != "undefined") {
-		if (window.crypto && window.crypto.getRandomValues) { 
-			return(true);
-		}
-	}
+    if (typeof (window) != "undefined") {
+        if (window.crypto && window.crypto.getRandomValues) {
+            return (true);
+        }
+    }
 
-	return(false);
+    return (false);
 
 } // End of i_can_has_good_crypto()
 
@@ -51,38 +51,38 @@ function iCanHasGoodCrypto() {
 * Return a random integer between 0 and max, inclusive.
 */
 function getRandomValue(max) {
-	return new Promise(function(resolve, reject) {
+    return new Promise(function (resolve, reject) {
 
-	if (max <= 0) {
-		reject("max can't be less or equal to zero!");
-		return(null);
-	}
+        if (max <= 0) {
+            reject("max can't be less or equal to zero!");
+            return (null);
+        }
 
-	if (iCanHasGoodCrypto()) {
+        if (iCanHasGoodCrypto()) {
 
-		Promise.try(function() {
-			return randomNumber(0, max);
+            Promise.try(function () {
+                return randomNumber(0, max);
 
-		}).then(function(number) {
-			retval = number;
-			resolve(retval);
+            }).then(function (number) {
+                retval = number;
+                resolve(retval);
 
-		}).catch({code: "RandomGenerationError"}, function(err) {
-			reject(err);
+            }).catch({ code: "RandomGenerationError" }, function (err) {
+                reject(err);
 
-		});
+            });
 
-	} else {
-		//
-		// Fall back to something way less secure.  The user has already 
-		// been warned.
-		//
-		retval = Math.floor(Math.random() * max);
-		resolve(retval);
+        } else {
+            //
+            // Fall back to something way less secure.  The user has already 
+            // been warned.
+            //
+            retval = Math.floor(Math.random() * max);
+            resolve(retval);
 
-	}
+        }
 
-	}); // End of Promise()
+    }); // End of Promise()
 } // End of getRandomValue()
 
 
@@ -96,7 +96,7 @@ function convertBigNumberToString(bignum) {
     //
     let retval = bignum
 
-    let bigstring = Number(bignum).toLocaleString("fullwide", {useGrouping: false});
+    let bigstring = Number(bignum).toLocaleString("fullwide", { useGrouping: false });
 
     let len = bigstring.length;
 
@@ -138,7 +138,7 @@ function convertBigNumberToString(bignum) {
 
     }
 
-    return(retval);
+    return (retval);
 
 } // End of convertBigNumberToString()
 

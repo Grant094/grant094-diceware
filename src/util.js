@@ -2,12 +2,12 @@
 
 let Promise = require("bluebird");
 
-module.exports = function(arg) {
+module.exports = function (arg) {
 
     //
     // Export our functions.
     //
-    return({
+    return ({
         is_mobile: is_mobile,
         get_word: get_word,
         extract_get_data: extract_get_data,
@@ -20,7 +20,7 @@ module.exports = function(arg) {
 * Return the width of the browser window.
 */
 function get_width() {
-	return(jQuery(window).width());
+    return (jQuery(window).width());
 }
 
 
@@ -29,11 +29,11 @@ function get_width() {
 */
 function is_mobile() {
 
-	if (get_width() <= 480) {
-		return(true);
-	}
+    if (get_width() <= 480) {
+        return (true);
+    }
 
-	return(false);
+    return (false);
 
 } // End of is_mobile()
 
@@ -47,18 +47,18 @@ function is_mobile() {
 * @return string The word from the dicelist
 */
 function get_word(cb_wordlist, index) {
-	
-	let retval = cb_wordlist()[index];
 
-	if (retval) {
-		retval = retval[0].toUpperCase() + retval.slice(1);
+    let retval = cb_wordlist()[index];
 
-	} else {
-		retval = "((Word not found in wordlist)) ";
+    if (retval) {
+        retval = retval[0].toUpperCase() + retval.slice(1);
 
-	}
+    } else {
+        retval = "((Word not found in wordlist)) ";
 
-	return(retval);
+    }
+
+    return (retval);
 
 } // End of get_word()
 
@@ -68,25 +68,25 @@ function get_word(cb_wordlist, index) {
 */
 function extract_get_data(get_data) {
 
-	let retval = {};
+    let retval = {};
 
-	if (!location.search) {
-		return(retval);
-	}	
+    if (!location.search) {
+        return (retval);
+    }
 
-	let get = get_data.substring(1);
-	let pairs = get.split("&");
+    let get = get_data.substring(1);
+    let pairs = get.split("&");
 
-	for (let k in pairs) {
-		let row = pairs[k];
-		let pair = row.split("=");
-		let key = pair[0];
-		let value = pair[1];
-		retval[key] = value;
+    for (let k in pairs) {
+        let row = pairs[k];
+        let pair = row.split("=");
+        let key = pair[0];
+        let value = pair[1];
+        retval[key] = value;
 
-	}
+    }
 
-	return(retval);
+    return (retval);
 
 } // End of extractGetData()
 

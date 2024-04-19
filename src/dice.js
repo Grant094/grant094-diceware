@@ -4,12 +4,12 @@ let Promise = require("bluebird");
 
 let lib = require("./lib.js")();
 
-module.exports = function(arg) {
+module.exports = function (arg) {
 
     //
     // Export our functions.
     //
-    return({
+    return ({
         rollDice: rollDice,
         getBase6: getBase6,
         convertBase6ToDice: convertBase6ToDice,
@@ -26,41 +26,41 @@ module.exports = function(arg) {
 *
 * @return array An array of the base 6 numbers.
 */
-function getBase6 (roll, num_dice) {
+function getBase6(roll, num_dice) {
 
-	let retval = [];
+    let retval = [];
 
-	//
-	// Sanity check
-	//
-	let max_dice_roll = Math.pow(6, num_dice) - 1;
-	if (roll > max_dice_roll) {
-		throw(new Error("Value too large!"));
-	}
+    //
+    // Sanity check
+    //
+    let max_dice_roll = Math.pow(6, num_dice) - 1;
+    if (roll > max_dice_roll) {
+        throw (new Error("Value too large!"));
+    }
 
-	if (roll < 0) {
-		throw(new Error("Value cannot be negative!"));
-	}
+    if (roll < 0) {
+        throw (new Error("Value cannot be negative!"));
+    }
 
-	//
-	// Go through each die, starting with the most significant one, and 
-	// get its value.
-	//
-	let num_dice_left = num_dice - 1;
-	let dice_value_left = roll;
+    //
+    // Go through each die, starting with the most significant one, and 
+    // get its value.
+    //
+    let num_dice_left = num_dice - 1;
+    let dice_value_left = roll;
 
-	for (let i = num_dice_left; i >= 0; i--) {
+    for (let i = num_dice_left; i >= 0; i--) {
 
-		let die_value = Math.pow(6, i);
-		let value = Math.floor( dice_value_left / die_value);
-		let left = dice_value_left % die_value;
+        let die_value = Math.pow(6, i);
+        let value = Math.floor(dice_value_left / die_value);
+        let left = dice_value_left % die_value;
 
-		retval.push(value);
-		dice_value_left = dice_value_left - (die_value * value);
+        retval.push(value);
+        dice_value_left = dice_value_left - (die_value * value);
 
-	}
+    }
 
-	return(retval);
+    return (retval);
 
 } // End of getBase6()
 
@@ -73,30 +73,30 @@ function getBase6 (roll, num_dice) {
 *
 * @return array An array of integers representing dice rolls
 */
-function convertBase6ToDice (roll, num_dice) {
+function convertBase6ToDice(roll, num_dice) {
 
-	let retval = [];
+    let retval = [];
 
-	if (roll.length != num_dice) {
-		throw("Mismatch between size of roll (" + roll.length + ") and number of dice (" + num_dice + ")");
-	}
+    if (roll.length != num_dice) {
+        throw ("Mismatch between size of roll (" + roll.length + ") and number of dice (" + num_dice + ")");
+    }
 
-	for (let k in roll) {
-		let num = roll[k];
+    for (let k in roll) {
+        let num = roll[k];
 
-		if (num < 0) {
-			throw("Value " + num + " is negative!");
-		}
+        if (num < 0) {
+            throw ("Value " + num + " is negative!");
+        }
 
-		if (num > 5) {
-			throw("Value " + num + " is too large!");
-		}
+        if (num > 5) {
+            throw ("Value " + num + " is too large!");
+        }
 
-		num++;
-		retval.push(num);
-	}
+        num++;
+        retval.push(num);
+    }
 
-	return(retval);
+    return (retval);
 
 } // End of convertBase6ToDice()
 
@@ -105,21 +105,21 @@ function convertBase6ToDice (roll, num_dice) {
 * Get the maximum value from the number of dice we're rolling.
 * This is in a separate function so it is testable.
 */
-function getNumValuesFromNumDice (num_dice) {
+function getNumValuesFromNumDice(num_dice) {
 
-	let retval;
+    let retval;
 
-	if (num_dice == 0) {
-		throw("Number of dice cannot be zero!");
+    if (num_dice == 0) {
+        throw ("Number of dice cannot be zero!");
 
-	} else if (num_dice < 0){
-		throw("Number of dice is negative!");
+    } else if (num_dice < 0) {
+        throw ("Number of dice is negative!");
 
-	}
+    }
 
-	retval = Math.pow(6, num_dice);
+    retval = Math.pow(6, num_dice);
 
-	return(retval);
+    return (retval);
 
 } // End of getNumValuesFromNumDice()
 
@@ -134,26 +134,26 @@ function getNumValuesFromNumDice (num_dice) {
 *
 */
 function rollDice(num_dice) {
-	return new Promise(function(resolve, reject) {
+    return new Promise(function (resolve, reject) {
 
-		let retval = {};
-		let max = getNumValuesFromNumDice(num_dice);
+        let retval = {};
+        let max = getNumValuesFromNumDice(num_dice);
 
-		Promise.try(function() {
-		
-			return(lib.getRandomValue(max - 1));
+        Promise.try(function () {
 
-		}).then(function(random) {
+            return (lib.getRandomValue(max - 1));
 
-			let base6 = getBase6(random, num_dice);
-			let dice = convertBase6ToDice(base6, num_dice);
+        }).then(function (random) {
 
-			retval.value = random;
-			retval.roll = dice;
+            let base6 = getBase6(random, num_dice);
+            let dice = convertBase6ToDice(base6, num_dice);
 
-			resolve(retval);
+            retval.value = random;
+            retval.roll = dice;
 
-	});
+            resolve(retval);
+
+        });
 
     }); // End of Promise()
 
