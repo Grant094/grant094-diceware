@@ -72,6 +72,14 @@ load = function (file, get_data, debug) {
             jQuery('#skip-animation').click();
         }
 
+        if (("num" in get_data) && !jQuery('#include-number').is(":checked")) {
+            jQuery('#include-number').click();
+        }
+
+        if (("special" in get_data) && !jQuery('#include-special-character').is(":checked")) {
+            jQuery('#include-special-character').click();
+        }
+
         //
         // If "debug" is set in the GET data, roll the dice on page load.
         // Speed up my development a bit. :-)
