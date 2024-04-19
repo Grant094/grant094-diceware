@@ -278,7 +278,7 @@ function rollDiceHandler(e) {
                         roll.word = String(possible_special_characters.charAt(Number(roll.dice.value) % possible_special_characters.length));
                     }
                 }
-                
+
                 rolls.push(roll);
                 passphrase.push(roll.word);
                 count++;
