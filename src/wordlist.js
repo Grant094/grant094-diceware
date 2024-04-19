@@ -68,6 +68,10 @@ load = function (file, get_data, debug) {
         jQuery("#roll_dice_text").html("Roll Dice!");
         jQuery("#roll_dice").prop("disabled", false);
 
+        if (("skip_animation" in get_data) && jQuery('#skip-animation').attr("checked", false)) {
+            jQuery('#skip-animation').click();
+        }
+
         //
         // If "debug" is set in the GET data, roll the dice on page load.
         // Speed up my development a bit. :-)

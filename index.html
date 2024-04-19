@@ -165,13 +165,17 @@
                         Other Options:
                     </h2>
 
-                    <input type="checkbox" id="include-number" name="include-number" class="option-checkbox"
+                    <input type="checkbox" id="include-number" name="include-number" class="option-checkbox passphrase-option"
                         value="include-number">
                     <label for="include-number">Number</label>
 
                     <input type="checkbox" id="include-special-character" name="include-special-character"
-                        class="option-checkbox" value="include-special-character">
+                        class="option-checkbox passphrase-option" value="include-special-character">
                     <label for="include-special-character">Special Character</label><br>
+
+                    <input type="checkbox" id="skip-animation" name="skip-animation"
+                        class="option-checkbox" value="skip-animation">
+                    <label for="skip-animation">Skip Animation</label><br>
 
                     <br />
                     <a name="roll_dice_button"></a>
@@ -389,9 +393,9 @@
 
 
                     <a name="skip_animation"></a>
-                    <h3>FAQ: Is there a way to skip the dice animation?</h3>
+                    <h3>FAQ: Can the Skip Animation checkbox be automatically selected?</h3>
 
-                    Yeah. Append "?skip_animation" to the URL to not display the dice animation
+                    Yeah. Append "?skip_animation" to the URL to check the skip animation box on page load.
                     <p />
                     <p />
 

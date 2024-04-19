@@ -370,7 +370,7 @@ function rollDiceHandlerPost(rolls, passphrase, num_passwords) {
         //
         row.append("<br clear=\"all\" />");
 
-        if ("skip_animation" in window.Diceware.get_data) {
+        if (jQuery('#skip-animation').is(':checked')) {
             console.log("Debug value 'skip_animation' set, not showing the dice!");
         } else {
             rows.push(row);
