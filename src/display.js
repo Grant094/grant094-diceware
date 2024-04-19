@@ -150,6 +150,8 @@ function results(cb) {
     jQuery(".copy_button_div").hide().clone().appendTo(".results");
     jQuery(".results").append("<br clear=\"all\" />");
 
+    jQuery(".results_phrase_length_key").hide().clone().appendTo(".results");
+    jQuery(".results_phrase_length_value").hide().clone().appendTo(".results");
     jQuery(".results_num_possible_key").hide().clone().appendTo(".results");
     jQuery(".results_num_possible_value").hide().clone().appendTo(".results");
 
@@ -165,6 +167,10 @@ function results(cb) {
         return (jQuery(".copy_button").on('click', function () {
             navigator.clipboard.writeText(jQuery(".string_to_copy").html());
         }));
+    }).then(function () {
+        return (jQuery(".results .results_phrase_length_key").fadeIn(400).promise());
+    }).then(function () {
+        return (jQuery(".results .results_phrase_length_value").fadeIn(400).promise());
     }).then(function () {
         return (jQuery(".results .results_num_possible_key").fadeIn(300).promise());
     }).then(function () {
@@ -188,7 +194,7 @@ function rollDiceHandlerPre() {
     //
     // In the future, I should just use a media query in CSS
     //
-    let target_height = 300;
+    let target_height = 400;
     if (util.is_mobile()) {
         target_height = 400;
     }
@@ -323,6 +329,10 @@ function rollDiceHandlerPost(rolls, passphrase, num_passwords) {
     // copy results phrase to clipboard
     //
     jQuery(".string_to_copy").html(passphrase.join(""));
+    //
+    // Populate passphrase length
+    //
+    jQuery(".results_phrase_length_value").html(passphrase.join("").length);
     // navigator.clipboard.writeText(passphrase.join(""));
     //
     // Convert the number of passwords to something based on the 
