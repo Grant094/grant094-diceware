@@ -29,7 +29,6 @@ util = require("./util.js")();
 //
 window.Diceware.num_dice_per_roll = 5;
 
-
 /**
 * Set the handlers 
 */
@@ -45,7 +44,7 @@ function set_handlers() {
 
     jQuery("#roll_dice").on("click", display.rollDiceHandler);
 
-    jQuery('.option-checkbox').on("change", function (e) {
+    jQuery('.passphrase-option').on("change", function (e) {
         let isChecked = jQuery(e.target).is(':checked');
         let incumbent_active_dice_button_id = jQuery(".active").attr('id');
         let incumbent_active_dice_button_num = incumbent_active_dice_button_id[incumbent_active_dice_button_id.length - 1];
