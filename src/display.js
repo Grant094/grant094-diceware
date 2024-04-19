@@ -267,13 +267,13 @@ function rollDiceHandler(e) {
             if (count >= Number(num_dice_for_words)) {
                 if (num_supplementary_characters === 2) {
                     if (count === Number(num_dice_for_words)) {
-                        roll.word = String(Number(roll.dice.value) % 10)
+                        roll.word = String(Number(roll.dice.value) % 6)
                     } else {
                         roll.word = String(possible_special_characters.charAt(Number(roll.dice.value) % possible_special_characters.length));
                     }
                 } else if (num_supplementary_characters === 1) {
                     if (num_dice_for_digits) {
-                        roll.word = String(Number(roll.dice.value) % 10)
+                        roll.word = String(Number(roll.dice.value) % 6)
                     } else {
                         roll.word = String(possible_special_characters.charAt(Number(roll.dice.value) % possible_special_characters.length));
                     }
@@ -335,18 +335,27 @@ function rollDiceHandlerPost(rolls, passphrase, num_passwords) {
     jQuery(".results_num_possible_value").html(num_passwords_html);
 
     let rows = new Array();
+    let digits = "123456";
     for (let key in rolls) {
 
         let roll = rolls[key];
         let row = jQuery("<div></div>");
 
         //
-        // Clone and append specific dice to this row.
+        // Check whether the word is just a digit and either append a single die or append the whole roll of dice
         //
-        for (let key2 in roll.dice.roll) {
-            let die = roll.dice.roll[key2];
-            let classname = ".source .dice" + die;
-            let tmp = jQuery(classname).clone().appendTo(row);
+        if (digits.includes(roll.word)) {
+            let classname = ".source .dice" + roll.word;
+            jQuery(classname).clone().appendTo(row);
+        } else {
+            //
+            // Clone and append specific dice to this row.
+            //
+            for (let key2 in roll.dice.roll) {
+                let die = roll.dice.roll[key2];
+                let classname = ".source .dice" + die;
+                let tmp = jQuery(classname).clone().appendTo(row);
+            }
         }
 
         //
