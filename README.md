@@ -94,7 +94,7 @@ My name is Grant Oxer, and I am an aspiring software engineer in Seattle.
 
 There are several ways to get in touch with me:
 - [LinkedIn](https://linkedin.com/in/groxer)
-- [GitHut](https://github.com/Grant094)
+- [GitHub](https://github.com/Grant094)
 
 Feel free to reach out to me if you have any comments, suggestions, or bug reports.
 
