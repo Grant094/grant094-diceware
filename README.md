@@ -25,19 +25,6 @@ can then point a webserver on your machine to `diceware/index.html` in order to 
 Sadly, you cannot open `diceware/index.html` directly, as the CORS policy in Chrome prevents that.
 If you know of a way to fix that, please [open an issue](https://github.com/dmuth/diceware/issues). :-)
 
-
-# Will this work on an iPhone?
-
-Yep!  It should work on any mobile phone or tablet that supports Javascript, but I have only
-tested it on an iPhone 5S at this time.
-
-
-# Will this work in an air-gapped environment?
-
-Yes, copies of assets such as Bootstrap and jQuery have been made, and Diceware can now be run without
-requiring an Internet connection.
-
-
 # Development
 
 This app is built with <a href="https://webpack.js.org/">Webpack</a>.
@@ -63,7 +50,7 @@ A local webserver can be set up by running `npm install http-server -g` to insta
     - `vim src/lib.js src/index.js`
         - Be sure to check in your changes before the next step!
 - Testing
-    - `rm -fv src/index.js && git co src/index.js` - Get the new SHA1 hash that will be displayed in debug messages.
+    - `rm -fv src/index.js && git checkout src/index.js` - Get the new SHA1 hash that will be displayed in debug messages.
         - The hash can be crosschecked with the results of `git hash-object src/index.js`
     - `npm test` - Make sure you didn't break any of the core logic!
     - `npx cypress run` - Run front-end testing
@@ -103,12 +90,11 @@ Wanna develop in Docker?  We got you covered.  Here are some helper scripts:
 
 # Who built this? / Contact
 
-My name is Douglas Muth, and I am a software engineer in Philadelphia, PA.
+My name is Grant Oxer, and I am an aspiring software engineer in Seattle.
 
 There are several ways to get in touch with me:
-- Email to doug.muth AT gmail DOT com or dmuth AT dmuth DOT org
-- [Facebook](https://facebook.com/dmuth) and [Twitter](http://twitter.com/dmuth)
-- [LinkedIn](https://linkedin.com/in/dmuth)
+- [LinkedIn](https://linkedin.com/in/groxer)
+- [GitHut](https://github.com/Grant094)
 
 Feel free to reach out to me if you have any comments, suggestions, or bug reports.
 
