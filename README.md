@@ -82,7 +82,7 @@ A local webserver can be set up by running `npm install http-server -g` to insta
 
 Wanna develop in Docker?  We got you covered.  Here are some helper scripts:
 
-- `bin/docker-build.sh` - Build the Docker copntainer
+- `bin/docker-build.sh` - Build the Docker container
 - `bin/docker-dev.sh` - Run in dev mode--listening on http://localhost:8000/
 - `bin/docker-prod.sh` - Run in prod mode--listening on http://localhost:80/
 - `bin/docker-push.sh` - Push to Docker Hub
