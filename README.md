@@ -2,7 +2,7 @@
 
 <img src="./assets/img/dice.jpg" width="250" align="right" />
 
-Feel free to check out the live version at [https://grantoxer.com/](https://grantoxer.com/).
+Feel free to check out the live version at [https://diceware.grantoxer.com/](https://diceware.grantoxer.com/).
 
 Weak passwords are a big flaw in computer security due to a lack of "entropy" or randomness. For example, how many times have you used the name of a pet or relative or street in a password, or perhaps the number "1". Not very random, is it? :-) Worse still, if passwords are reused between services, that increases your security risk.
 
