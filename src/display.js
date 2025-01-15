@@ -224,7 +224,7 @@ function rollDiceHandlerPre() {
 */
 function rollDiceHandler(e) {
 
-    let possible_special_characters = "~!@#$%^&*()_-+={[}]|:;<,>.?/"
+    let possible_special_characters = "~!@#$%^&*()"
 
     //
     // Disable our button while generating results
